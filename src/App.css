@@ -1,27 +1,71 @@
-li .active{
+li .active {
     border-bottom: 2px solid red;
     color: red !important;
     font-weight: bold;
 }
-.img-css-carousel{
+
+.img-css-carousel {
     height: 550px;
     width: 100%;
     object-fit: contain;
-    
-  
+
+
 }
-.img-carousel-short{
+
+.img-carousel-short {
     height: 110px !important;
     width: 110px !important;
     background: none !important;
-   
+
 }
-.NavLogo{
+
+.NavLogo {
     height: 50px;
     width: 60px;
     object-fit: cover;
 }
-.card-img-css{
-    height: 220px !important;
+
+.card-img-css {
+    height: 150px !important;
     object-fit: contain !important;
+}
+
+.img-brand {
+    object-fit: contain !important;
+}
+.last-card-con{
+    height: 70vh ;   
+}
+.css-icon-last{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px !important;
+    width: 50px !important;
+}
+.img-section{
+    object-fit: contain !important;   
+}
+.css-custom-card{
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+.css-custom-card{
+    height: 60vh;
+    border-radius: 40px;
+}
+.css{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.css-icon-custom{
+    font-size: larger;
+}
+.css-nav-icon{
+    font-size: x-large;
 }

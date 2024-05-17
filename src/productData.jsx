@@ -1,4 +1,4 @@
-export let productData = [
+ let productData = [
     {
         name:"Shoes",
         price:"5000.Rs",
@@ -85,3 +85,52 @@ export let productData = [
     },
 
 ]
+ let BrandData = [
+    {
+        name : "Creavif",
+        imagePath : "brandImages/b1.png"
+    },
+    {
+        name : "reddot",
+        imagePath : "brandImages/b2.png"
+    },
+    {
+        name : "ukinox",
+        imagePath : "brandImages/b3.png"
+    },
+    {
+        name : "zipponi",
+        imagePath : "brandImages/b4.png"
+    },
+    {
+        name : "meroeurope",
+        imagePath : "brandImages/b5.png"
+    },
+    {
+        name : "pate",
+        imagePath : "brandImages/b6.png"
+    },
+    {
+        name : "Vitra",
+        imagePath : "brandImages/b7.png"
+    },
+    {
+        name : "Rebook",
+        imagePath : "brandImages/b8.png"
+    },
+    {
+        name : "adidas",
+        imagePath : "brandImages/b9.png"
+    },
+    {
+        name : "Calvin Klein",
+        imagePath : "brandImages/b10.png"
+    },
+    {
+        name : "Wardah",
+        imagePath : "brandImages/b11.png"
+    },
+    
+]
+
+export {productData,BrandData} 

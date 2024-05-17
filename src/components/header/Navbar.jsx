@@ -19,8 +19,9 @@ const Navbar = () => {
        <NavItem to="/about" page="About"/>
       </ul>
      <div>
+     <i class="bi bi-cart mx-2  css-nav-icon"></i>
       <Link className='mx-2' to="/login" ><NavBtn BtnName="Login" /></Link>
-      <Link to="/signup" ><NavBtn BtnName="Signup" /></Link>
+      <Link to="/signup" className='mx-1' ><NavBtn BtnName="Signup" /></Link>
      </div>
     </div>
   </div>
