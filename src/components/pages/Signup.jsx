@@ -1,29 +1,62 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import { singupSchema } from '../../schema'
 import InpComp from '../reusable/InpComp'
 import { TextField } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
   document.title = "Signup";
-
+  const navigate = useNavigate();
   const [initialValues, setInitialValues] = useState({
     name: "",
     email: "",
     pass: "",
     cPass: ""
   })
-  let { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
+
+  useEffect(() => {
+    const storage = localStorage.getItem("user");
+    if (storage) {
+      navigate('/'); 
+    }
+  }, [navigate]);
+
+  const { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     validationSchema: singupSchema,
     onSubmit: (values, action) => {
-      setInitialValues(values)
-      action.resetForm();
-    },
-  })
+      const storedUser = JSON.parse(localStorage.getItem("user"));
 
-  localStorage.setItem("user", JSON.stringify(initialValues))
+      if (storedUser && storedUser.email === values.email) {
+        alert("email has already register") 
+      } else {
+        localStorage.setItem("user", JSON.stringify(values));
+        setInitialValues(values);
+        action.resetForm();
+        navigate('/');
+      }
+    },
+  });
+//   let { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
+//     initialValues: initialValues,
+//     validationSchema: singupSchema,
+//     onSubmit: (values, action) => {
+//       setInitialValues(values)
+//       action.resetForm();
+//     },
+//   })
+// function setData(){
+//       let storage = localStorage.getItem("user")
+//      if(storage){
+//      let parseData = JSON.parse(storage)
+
+//      }else{
+//       console.log("jkasdjasd")
+//       localStorage.setItem("user",JSON.stringify(initialValues))
+//      }
+// }
 
   return (
     <>
@@ -53,7 +86,7 @@ const Signup = () => {
             <div id="emailHel2p" className="text-danger">{errors.cPass}</div>
           ) : null}
         </div>
-        <button className='btn btn-primary' type='submit'>Signup</button>
+        <button className='btn btn-primary'  type='submit'>Signup</button>
         {/* <Button variant="contained" type="submit">Submit</Button> */}
       </form>
     </>

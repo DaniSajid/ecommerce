@@ -6,6 +6,7 @@ import Brand from './brands/Brand'
 import NavBtn from '../header/NavBtn'
 import BtnComp from '../reusable/BtnComp'
 import CustomCard from './customcards/CustomCard'
+import Shiping from './shipingDetail/Shiping'
 
 const Home = () => {
   document.title = "Home";
@@ -49,6 +50,7 @@ const Home = () => {
           <BtnComp  variant="contained" BtnName="more brands" />
         </div>
       </div>
+      <Shiping/>
     </>
   )
 }
