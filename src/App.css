@@ -69,3 +69,7 @@ li .active {
 .css-nav-icon{
     font-size: x-large;
 }
+.img-about-css{
+    object-fit: cover !important;
+    width: max-content;
+}

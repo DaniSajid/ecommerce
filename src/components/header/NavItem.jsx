@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const NavItem = ({ to, page }) => {
   return (
     <li className="nav-item">
-      <NavLink className="nav-link isActive text-white" aria-current="page" to={to}>{page}</NavLink>
+      <NavLink className="nav-link isActive text-dark" aria-current="page" to={to}>{page}</NavLink>
     </li>
   )
 }

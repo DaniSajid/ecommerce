@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Carousel />
-      <div className="container my-5">
+      <div className="container my-3">
         <CardComp />
       </div>
       <hr />

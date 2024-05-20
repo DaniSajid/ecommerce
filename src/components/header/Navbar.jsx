@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar  navbar-expand-md fixed-top bg-dark ">
+    <nav className="navbar  navbar-expand-lg fixed-top mb-5">
       <div className="container-fluid">
         <a className="navbar-brand text-white" href="#"><NavLogo /> Navbar</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@ const Navbar = () => {
             <NavItem to="/about" page="About" />
           </ul>
           <div>
-            <i class="bi bi-cart mx-2 text-white css-nav-icon"></i>
+            <i class="bi bi-cart mx-2 text-dark css-nav-icon"></i>
             {isLoggedIn ? (
               <NavBtn className='btn btn-primary mx-1' BtnName="Logout" onClick={handleLogout}>Logout</NavBtn>
             ) : (
