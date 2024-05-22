@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavItem from './NavItem';
 import NavBtn from './NavBtn';
 import NavLogo from './NavLogo';
+import { IconButton } from '@mui/material';
+import { AddShoppingCartOutlined } from '@mui/icons-material';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,7 +42,10 @@ const Navbar = () => {
             <NavItem to="/about" page="About" />
           </ul>
           <div>
-            <i className="bi bi-cart mx-2 text-dark css-nav-icon"></i>
+            <IconButton color="dark" aria-label="add to shopping cart">
+              <AddShoppingCartOutlined />
+            </IconButton>
+
             {isLoggedIn ? (
               <>
                 <NavBtn className="mx-3" BtnName={userName} />

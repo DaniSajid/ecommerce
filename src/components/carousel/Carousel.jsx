@@ -3,7 +3,7 @@ import React from 'react'
 const Carousel = () => {
   return (
     <>
-      <div id="carouselExampleIndicators" className="carousel slide my-5">
+      <div id="carouselExampleIndicators" className="carousel slide my-5 lg-shadow">
   <div className="carousel-indicators justify-content-end ">
    <img data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active img-carousel-short" aria-current="true" aria-label="Slide 1" src="shoesImages/12.png"  alt="..."/>
       <img src="shoesImages/11.png" alt="..." data-bs-target="#carouselExampleIndicators" className='img-carousel-short' data-bs-slide-to="1" aria-label="Slide 2" />
