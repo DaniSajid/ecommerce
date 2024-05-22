@@ -73,3 +73,9 @@ li .active {
     object-fit: cover !important;
     width: max-content;
 }
+.css-top{
+    margin-top: 4rem !important;
+}
+.css-low{
+    margin-bottom: 1rem !important;
+}

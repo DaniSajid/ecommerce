@@ -12,7 +12,7 @@ const CustomCard = ({ imagePath }) => {
                         <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
                         <ul className="d-flex list-unstyled mt-auto">
                             <li className="me-auto bg-white css">
-                                <i class="bi bi-lock text-dark css-icon-custom"></i>
+                                <i className="bi bi-lock text-dark css-icon-custom"></i>
                             </li>
                             <li className="d-flex align-items-center me-3">
                                 <small>Earth</small>

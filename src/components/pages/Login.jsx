@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -13,6 +13,13 @@ const Login = () => {
     pass: Yup.string().min(8).max(20).required('Password must be at least 8 number')
   });
 
+  useEffect(() => {
+    const storage = localStorage.getItem("isUserLoggedIn");
+    if (storage) {
+      navigate('/');
+    }
+  }, [navigate]);
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
       email: "",
@@ -20,15 +27,16 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
-      const storedUser = JSON.parse(localStorage.getItem('user'));
-      if (storedUser) {
-        if (storedUser.email === values.email && storedUser.pass === values.pass) {
-          navigate('/');
-        } else {
-          alert('Invalid email or password');
-        }
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+      const user = storedUsers.find(user => user.email === values.email && user.pass === values.pass);
+
+      if (user) {
+        localStorage.setItem('isUserLoggedIn', JSON.stringify(true));
+        localStorage.setItem('loggedInUser', JSON.stringify(user.name)); // Store logged-in user's name
+        navigate('/');
       } else {
-        alert('No user found. Please sign up first.');
+        alert('Invalid email or password');
       }
       actions.resetForm();
     },
