@@ -7,6 +7,7 @@ import Category from './components/pages/Category'
 import Login from './components/pages/Login'
 import Signup from './components/pages/Signup'
 import Footer from './components/footer/Footer'
+import CardDetail from './components/pages/Card/CardDetail'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route path='/Category' element={<Category/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<Signup/>} />
+      <Route path='/products/:id' element={<CardDetail/>} />
      
      </Routes>
      <Footer/>

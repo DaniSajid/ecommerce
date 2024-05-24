@@ -1,13 +1,18 @@
-import { Card, CardActionArea, CardActions, CardMedia, Typography, CardContent, Grid } from '@mui/material'
+import { Card, CardActionArea, CardActions, CardMedia, Typography, CardContent, Grid, Rating } from '@mui/material'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React from 'react'
 import CardBtn from './CardBtn'
 import { productData } from '../../../productData';
+import {useNavigate } from 'react-router-dom';
 
 const CardComp = () => {
   
-
+const navigate = useNavigate()
+const btnDetail = (product) => {
+  console.log(product);
+  navigate(`/products/${product.id}`, { state: { product } });
+};
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -56,8 +61,9 @@ const CardComp = () => {
             </Typography>
           </CardContent>
         </CardActionArea>
+        <Rating  value={value.rating} precision={0.5} readOnly />
         <CardActions>
-          <CardBtn BtnCardName={value.BtnText} />
+          <CardBtn onClick={() => btnDetail(value)} BtnCardName={value.BtnText} />
         </CardActions>
       </Card>
     ))}

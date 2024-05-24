@@ -1,9 +1,9 @@
 import { Button } from '@mui/material'
 import React from 'react'
 
-const CardBtn = ({BtnCardName}) => {
+const CardBtn = ({BtnCardName, onClick}) => {
   return (
-    <Button variant="contained">{BtnCardName}</Button>
+    <Button variant="contained" onClick={onClick} >{BtnCardName}</Button>
   )
 }
 
