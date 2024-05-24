@@ -8,6 +8,7 @@ import Login from './components/pages/Login'
 import Signup from './components/pages/Signup'
 import Footer from './components/footer/Footer'
 import CardDetail from './components/pages/Card/CardDetail'
+import Checkout from './components/checkout/Checkout'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/Category' element={<Category/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<Signup/>} />
+      <Route path='/check' element={<Checkout/>} />
       <Route path='/products/:id' element={<CardDetail/>} />
      
      </Routes>
