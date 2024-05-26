@@ -41,7 +41,9 @@ const Signup = () => {
 
   return (
     <>
-      <h1 className='text-center'>SignUp Page</h1>
+     <div className="css-top">
+      <h1 className="display-5 fw-normal bg-body-tertiary text-center text-body-emphasis ">Signup Page</h1>
+      </div>
       <form className='col-6 offset-3 my-5' onSubmit={handleSubmit}>
         <div className="mb-3">
           <InpComp value={values.name} id="name" onChange={handleChange} onBlur={handleBlur} name="name" type="text" label="Name" />

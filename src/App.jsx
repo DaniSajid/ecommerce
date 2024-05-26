@@ -9,11 +9,13 @@ import Signup from './components/pages/Signup'
 import Footer from './components/footer/Footer'
 import CardDetail from './components/pages/Card/CardDetail'
 import Checkout from './components/checkout/Checkout'
+import { CartProvider } from './components/context/Context'
 
 function App() {
 
   return (
-    <>   
+    <>  
+<CartProvider>
     <BrowserRouter>
 
      <Navbar/>
@@ -30,7 +32,7 @@ function App() {
      </Routes>
      <Footer/>
     </BrowserRouter>
-   
+    </CartProvider>
     </>
   )
 }

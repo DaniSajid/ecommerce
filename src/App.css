@@ -79,3 +79,13 @@ li .active {
 .css-low{
     margin-bottom: 1rem !important;
 }
+.css-addCart{
+    background-color: black;
+    color: white;
+    width: 20px;
+    font-size: small;
+    border-radius: 20px;
+    margin-top: 22px;
+
+    
+}

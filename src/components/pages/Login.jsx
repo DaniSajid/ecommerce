@@ -44,7 +44,9 @@ const Login = () => {
 
   return (
     <>
-      <h1 className='text-center'>Login Page</h1>
+      <div className="css-top">
+      <h1 className="display-5 fw-normal bg-body-tertiary text-center text-body-emphasis ">Login Page</h1>
+      </div>
       <form className='col-6 offset-3 my-5' onSubmit={handleSubmit}>
         <div className="mb-3">
           <InpComp value={values.email} id="email" onChange={handleChange} onBlur={handleBlur} name="email" type="email" label="Email" />

@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavItem from './NavItem';
 import NavBtn from './NavBtn';
 import NavLogo from './NavLogo';
-import { IconButton } from '@mui/material';
+import { Avatar, Button, Divider, List, ListItem, ListItemAvatar, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
 import { AddShoppingCartOutlined } from '@mui/icons-material';
+import { CartContext } from '../context/Context';
 
 const Navbar = () => {
+  const { cart } = useContext(CartContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
@@ -19,6 +21,17 @@ const Navbar = () => {
       setUserName(JSON.parse(loggedInUser));
     }
   });
+  console.log(cart, "aljsakladjsj")
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('isUserLoggedIn');
@@ -42,10 +55,49 @@ const Navbar = () => {
             <NavItem to="/about" page="About" />
           </ul>
           <div>
-            <IconButton color="dark" aria-label="add to shopping cart">
-              <AddShoppingCartOutlined />
-            </IconButton>
+            <Button
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
 
+            >
+              <AddShoppingCartOutlined />  <span className='css-addCart'>{cart.length}</span>
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              {cart.map((value, index) => (
+                <MenuItem key={index} onClick={handleClose}>
+                  <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+
+                    <Divider variant="inset" component="li" />
+                    <ListItem alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar alt="Travis Howard" src={value.imagePath} />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={value.name}
+                        secondary={
+                          <React.Fragment>
+
+                            {value.desc}
+                          </React.Fragment>
+                        }
+                      />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                  </List></MenuItem>
+              ))}
+
+            </Menu>
             {isLoggedIn ? (
               <>
                 <NavBtn className="mx-3" BtnName={userName} />
@@ -64,4 +116,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

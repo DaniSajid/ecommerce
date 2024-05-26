@@ -1,13 +1,14 @@
 import { Card, CardActionArea, CardActions, CardMedia, Typography, CardContent, Grid, Rating } from '@mui/material'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React from 'react'
+import React, { useContext } from 'react'
 import CardBtn from './CardBtn'
 import { productData } from '../../../productData';
 import {useNavigate } from 'react-router-dom';
+import { CartContext } from '../../context/Context';
 
 const CardComp = () => {
-  
+  const { addToCart } = useContext(CartContext);
 const navigate = useNavigate()
 const btnDetail = (product) => {
   console.log(product);
@@ -64,6 +65,7 @@ const btnDetail = (product) => {
         <Rating  value={value.rating} precision={0.5} readOnly />
         <CardActions>
           <CardBtn onClick={() => btnDetail(value)} BtnCardName={value.BtnText} />
+          <CardBtn onClick={() => addToCart(value)} BtnCardName={value.BtnAdd} />
         </CardActions>
       </Card>
     ))}

@@ -36,9 +36,9 @@ const Home = () => {
       <div className="container px-4 py-5" id="custom-cards">
     <h2 className="pb-2 border-bottom">Need Ideas</h2>
 <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-          <CustomCard imagePath="shoesImages/3.png" />
-          <CustomCard imagePath="shoesImages/2.png" />
-          <CustomCard imagePath="shoesImages/5.png" />
+          <CustomCard imagePath="kidShoesImages/kid2.png" />
+          <CustomCard imagePath="girlShoesImages/girl11.png" />
+          <CustomCard imagePath="shoesImages/11.png" />
     </div>
     <div className="w-100 d-flex justify-content-center">
           <BtnComp  variant="contained" BtnName="more Ideas" />

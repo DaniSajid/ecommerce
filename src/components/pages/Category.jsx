@@ -1,5 +1,8 @@
-import React from 'react';
-import { Box, Container, Tab, Tabs, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Container, Grid, Tab, Tabs, Typography } from '@mui/material';
+import ManCat from './categorypages/ManCat';
+import GirlCat from './categorypages/GirlCat';
+import KidCat from './categorypages/KidCat';
 
 // Define the TabPanel component
 function CustomTabPanel(props) {
@@ -15,7 +18,7 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -31,15 +34,12 @@ function a11yProps(index) {
 }
 
 const Category = () => {
-  const [value, setValue] = React.useState(0);
+  document.title = "Category";
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  React.useEffect(() => {
-    document.title = "Category";
-  }, []);
 
   return (
     <>
@@ -47,25 +47,37 @@ const Category = () => {
         <h1 className="display-5 fw-normal bg-body-tertiary text-center text-body-emphasis">Category</h1>
       </div>
       <Container>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
-          <Tab label="Men's Shoes" {...a11yProps(0)} />
-          <Tab label="Women's Shoes" {...a11yProps(1)} />
-          <Tab label="Kids' Shoes" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-      <Typography variant="h6">Men's Shoes</Typography>
-        <p>Explore our range of stylish and comfortable men's shoes.</p>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-      <Typography variant="h6">Women's Shoes</Typography>
-        <p>Discover the latest trends in women's footwear.</p>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-      <Typography variant="h6">Kids' Shoes</Typography>
-        <p>Find durable and fun shoes for kids of all ages.</p>
-      </CustomTabPanel>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
+            <Tab label="Men's Shoes" {...a11yProps(0)} />
+            <Tab label="Women's Shoes" {...a11yProps(1)} />
+            <Tab label="Kids' Shoes" {...a11yProps(2)} />
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          <Box>
+            <Typography variant="h6">Men's Shoes</Typography>
+            <Grid container columns={12} spacing={2}>
+              <ManCat />
+            </Grid>
+          </Box>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <Box>
+            <Typography variant="h6">Women's Shoes</Typography>
+            <Grid container columns={12} spacing={2}>
+              <GirlCat />
+            </Grid>
+          </Box>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          <Box>
+            <Typography variant="h6">Kids' Shoes</Typography>
+            <Grid container columns={12} spacing={2}>
+              <KidCat />
+            </Grid>
+          </Box>
+        </CustomTabPanel>
       </Container>
     </>
   );
