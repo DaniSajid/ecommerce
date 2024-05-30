@@ -3,14 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavItem from './NavItem';
 import NavBtn from './NavBtn';
 import NavLogo from './NavLogo';
-import { Avatar, Button, Divider, List, ListItem, ListItemAvatar, ListItemText, Menu, MenuItem, Typography } from '@mui/material';
+import { Avatar, Button, Divider, List, ListItem, ListItemAvatar, ListItemText, Menu, MenuItem } from '@mui/material';
 import { AddShoppingCartOutlined } from '@mui/icons-material';
 import { CartContext } from '../context/Context';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +23,17 @@ const Navbar = () => {
       setUserName(JSON.parse(loggedInUser));
     }
   });
-  console.log(cart, "aljsakladjsj")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -42,11 +54,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top css-low">
+    <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container-fluid">
         <a className="navbar-brand text-dark" href="#"><NavLogo /> TrendyTreads</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+          <MenuOutlinedIcon/>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -61,7 +73,6 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-
             >
               <AddShoppingCartOutlined />  <span className='css-addCart'>{cart.length}</span>
             </Button>
@@ -77,7 +88,6 @@ const Navbar = () => {
               {cart.map((value, index) => (
                 <MenuItem key={index} onClick={handleClose}>
                   <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-
                     <Divider variant="inset" component="li" />
                     <ListItem alignItems="flex-start">
                       <ListItemAvatar>
@@ -87,16 +97,15 @@ const Navbar = () => {
                         primary={value.name}
                         secondary={
                           <React.Fragment>
-
                             {value.desc}
                           </React.Fragment>
                         }
                       />
                     </ListItem>
                     <Divider variant="inset" component="li" />
-                  </List></MenuItem>
+                  </List>
+                </MenuItem>
               ))}
-
             </Menu>
             {isLoggedIn ? (
               <>

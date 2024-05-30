@@ -6,7 +6,7 @@ import BtnComp from '../../reusable/BtnComp';
 
 const CardDetail = () => {
   document.title = "Product"
-    const location = useLocation();
+  const location = useLocation();
   const { product } = location.state || {};
 
   if (!product) {
@@ -14,10 +14,10 @@ const CardDetail = () => {
   }
   return (
     <>
-        <div className="css-top">
-      <h1 className="display-5 fw-normal bg-body-tertiary text-center text-body-emphasis ">Product</h1>
+      <div className="css-top">
+        <h1 className="display-5 fw-normal bg-body-tertiary text-center text-body-emphasis ">Product</h1>
       </div>
-    <div className="container my-5">
+      <div className="container my-5">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center  border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Your Feet Deserve <span className="text-body-secondary">The Best.</span></h1>
@@ -26,7 +26,7 @@ const CardDetail = () => {
             <Typography variant="h5">Price: {product.price}</Typography>
             <Rating value={product.rating} precision={0.5} readOnly />
             <div className="d-grid gap-2 d-md-flex justify-content-md-start my-1 mb-4 mb-lg-3">
-            
+
               <BtnComp variant="contained" BtnName="Add to Cart" />
               <BtnComp variant="outlined" BtnName="Category" />
             </div>
@@ -36,14 +36,6 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-       
-         {/* <div>
-      <Typography variant="h3">{product.name}</Typography>
-      <img src={product.imagePath} alt={product.name} />
-      <Typography variant="body1">{product.desc}</Typography>
-      <Typography variant="h5">Price: {product.price}</Typography>
-      <Rating value={product.rating} readOnly />
-    </div> */}
     </>
   )
 }

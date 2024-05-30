@@ -1,6 +1,38 @@
+.navbar {
+    transition: background-color 0.3s ease !important;
+    height: 65px !important;
+  }
+  
+  .navbar-scrolled {
+    background-color: #000000 !important;
+    
+  }
+  .navbar-scrolled .isActive{
+    color: azure !important;
+    
+  }
+  .navbar-scrolled .navbar-brand{
+    color: azure !important;
+    
+  }
+  .navbar-scrolled .css-addCart{
+    background-color: rgb(246, 246, 246);
+    color: rgb(0, 0, 0);
+    width: 20px;
+    font-size: small;
+    border-radius: 20px;
+    margin-top: 22px;
+}
+  .navbar-scrolled .navbar-toggler{
+    border: white 1px solid !important;
+  }
+  .navbar-scrolled .navbar{
+    color: white  !important;
+  }
+  
 li .active {
-    border-bottom: 2px solid red;
-    color: red !important;
+    border-bottom: 2px solid  #0072ff;
+    color:#0072ff  !important;
     font-weight: bold;
 }
 
@@ -8,7 +40,11 @@ li .active {
     height: 550px;
     width: 100%;
     object-fit: contain;
-
+}
+.img-css{
+    height: 70px !important;
+    width: 70px;
+    object-fit: contain;
 
 }
 
